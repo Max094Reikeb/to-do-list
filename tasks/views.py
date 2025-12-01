@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.conf import settings
-from .models import *
-from .forms import *
+from django.shortcuts import redirect, render
+from forms import TaskForm
+from models import Task
 
 
 # Create your views here.
