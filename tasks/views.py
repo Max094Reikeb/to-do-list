@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.shortcuts import redirect, render
-from forms import TaskForm
-from models import Task
+
+from tasks.forms import TaskForm
+from tasks.models import Task
 
 
 # Create your views here.
