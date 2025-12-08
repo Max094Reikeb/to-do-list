@@ -6,7 +6,7 @@ APP_NAME="todolist"
 SETTINGS_FILE="todo/settings.py"
 
 # ---- Parse arguments ----
-if [ $# -lt 1 ]; then
+if [ "$#" -lt 1 ]; then
   echo "Usage: ./build.sh version=X.Y.Z"
   exit 1
 fi
@@ -21,12 +21,12 @@ case "$1" in
     ;;
 esac
 
-if [ -z "$VERSION" ]; then
+if [ -z "${VERSION}" ]; then
   echo "Error: version cannot be empty"
   exit 1
 fi
 
-echo "Building version: $VERSION"
+echo "Building version: ${VERSION}"
 
 # ---- Check that we're in a git repo ----
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -35,21 +35,36 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 # ---- Update APP_VERSION in settings.py ----
-if [ ! -f "$SETTINGS_FILE" ]; then
-  echo "Error: settings file '$SETTINGS_FILE' not found."
+if [ ! -f "${SETTINGS_FILE}" ]; then
+  echo "Error: settings file '${SETTINGS_FILE}' not found."
   exit 1
 fi
 
-echo "Updating APP_VERSION in $SETTINGS_FILE ..."
+# ---- Run Ruff linter first to check if it passes ----
+if command -v ruff >/dev/null 2>&1; then
+  echo "Running Ruff linter..."
+  if ! ruff check .; then
+    echo "Ruff checks failed. Aborting build."
+    exit 1
+  fi
+else
+  echo "Ruff not found, skipping lint step."
+fi
 
-python - <<EOF
+echo "Updating APP_VERSION in ${SETTINGS_FILE} ..."
+
+python - "${SETTINGS_FILE}" "${VERSION}" << 'EOF'
 from pathlib import Path
 import re
-settings_path = Path("$SETTINGS_FILE")
+import sys
+
+settings_path = Path(sys.argv[1])
+version = sys.argv[2]
+
 text = settings_path.read_text(encoding="utf-8")
 
 pattern = r'APP_VERSION\s*=\s*["\']([^"\']*)["\']'
-replacement = f'APP_VERSION = "{ "$VERSION" }"'
+replacement = f'APP_VERSION = "{version}"'
 
 new_text, count = re.subn(pattern, replacement, text)
 if count == 0:
@@ -58,24 +73,24 @@ if count == 0:
 settings_path.write_text(new_text, encoding="utf-8")
 EOF
 
-echo "APP_VERSION updated to $VERSION."
+echo "APP_VERSION updated to ${VERSION}."
 
 # ---- Create git tag ----
-echo "Tagging current commit with '$VERSION' ..."
-git tag "$VERSION" || {
-  echo "Error: could not create git tag '$VERSION'. (Maybe it already exists?)"
+echo "Tagging current commit with '${VERSION}' ..."
+git tag "${VERSION}" || {
+  echo "Error: could not create git tag '${VERSION}'. (Maybe it already exists?)"
   exit 1
 }
 
-echo "Tag '$VERSION' created."
-echo "Remember to push it later with: git push origin \"$VERSION\""
+echo "Tag '${VERSION}' created."
+echo "Remember to push it later with: git push origin \"${VERSION}\""
 
 # ---- Create archive ----
 ARCHIVE_NAME="${APP_NAME}-${VERSION}.zip"
 
-echo "Creating archive: $ARCHIVE_NAME ..."
-git archive --format=zip --output "$ARCHIVE_NAME" HEAD
+echo "Creating archive: ${ARCHIVE_NAME} ..."
+git archive --format=zip --output "${ARCHIVE_NAME}" HEAD
 
-echo "Archive created: $ARCHIVE_NAME"
+echo "Archive created: ${ARCHIVE_NAME}"
 
-echo "Done. Version: $VERSION, tag: $VERSION, archive: $ARCHIVE_NAME"
+echo "Done. Version: ${VERSION}, tag: ${VERSION}, archive: ${ARCHIVE_NAME}"

@@ -1,0 +1,13 @@
+# Ruff configuration file
+line-length = 150
+
+[lint]
+select = ["E", "F", "W", "B", "I"]
+
+# Exclude idea folders, virtual envs & Django migrations
+exclude = [
+    ".idea",
+    ".vscode",
+    ".venv",
+    "migrations",
+]
