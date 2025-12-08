@@ -40,23 +40,23 @@ tests:
     description: "La version de l'application (app_version) est passée au template et affichée sur la page."
 
   - id: TC011
-    type: manuel
+    type: manual
     description: "Vérifier l'affichage responsive et la mise en page sur desktop et mobile."
 
   - id: TC012
-    type: manuel
+    type: manual
     description: "Vérifier l'accessibilité de base : navigation clavier, focus, lien 'Skip to main content', labels de formulaire."
 
   - id: TC013
-    type: manuel
+    type: manual
     description: "Avec une base vide, vérifier que la page affiche un message 'No tasks yet.' ou équivalent."
 
   - id: TC014
-    type: manuel
+    type: manual
     description: "Vérifier visuellement le style différent entre tâches complètes (barré) et incomplètes."
 
   - id: TC015
-    type: manuel
+    type: manual
     description: "Vérifier la cohérence, l'orthographe et la langue de tous les textes de l'interface."
 
   - id: TC016
