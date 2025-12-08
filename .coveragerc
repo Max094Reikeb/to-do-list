@@ -1,9 +1,12 @@
 [run]
-source = tasks
 branch = True
+source =
+    tasks
+    todo
 
 [report]
 show_missing = True
 skip_covered = True
 omit =
     */migrations/*
+    */tests/*
