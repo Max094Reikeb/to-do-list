@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # App version
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.1.0"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-=8e&h2naz6*na6mne4y8l1m@rr=(igde^7rz2cmal)r_o)raoo
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+TEST_RUNNER = "tests.json_test_runner.JsonTestRunner"
 
 ALLOWED_HOSTS = []
 

@@ -12,6 +12,7 @@ coverage = "*"
 selenium = "*"
 axe-core-python = "*"
 axe-selenium-python = "*"
+yaml = "*"
 
 [requires]
 python_version = "3.11"

@@ -7,6 +7,7 @@ from django.core.management.base import CommandError
 from django.test import TestCase
 
 from tasks.models import Task
+from ..decorators import tc
 
 
 class ImportDatasetTests(TestCase):
@@ -22,6 +23,7 @@ class ImportDatasetTests(TestCase):
         tmp.close()
         return path
 
+    @tc("TC016")
     def test_import_dataset_creates_tasks_from_file_with_truncate(self):
         data = [
             {"title": "Task A", "complete": False},
@@ -39,6 +41,7 @@ class ImportDatasetTests(TestCase):
         self.assertIn("Task B", titles)
         self.assertFalse(Task.objects.filter(title="OLD").exists())
 
+    @tc("TC017")
     def test_import_dataset_appends_tasks_without_truncate(self):
         existing = Task.objects.create(title="Existing", complete=False)
 
@@ -55,11 +58,13 @@ class ImportDatasetTests(TestCase):
         self.assertIn("New Task", titles)
         self.assertTrue(Task.objects.filter(id=existing.id).exists())
 
+    @tc("TC018")
     def test_import_dataset_missing_file_raises_error(self):
         """Nonexisting file → CommandError."""
         with self.assertRaises(CommandError):
             call_command("import_dataset", path="does_not_exist.json")
 
+    @tc("TC018")
     def test_import_dataset_with_non_list_data_raises_error(self):
         """If the JSON is not a list, we must throw CommandError."""
         obj = {"title": "Not a list"}
@@ -68,6 +73,7 @@ class ImportDatasetTests(TestCase):
         with self.assertRaises(CommandError):
             call_command("import_dataset", path=str(path))
 
+    @tc("TC019")
     def test_import_dataset_skips_entries_without_title(self):
         """We ignore entries without 'title'"""
         data = [
