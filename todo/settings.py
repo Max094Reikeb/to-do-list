@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-=8e&h2naz6*na6mne4y8l1m@rr=(igde^7rz2cmal)r_o)raoo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEST_RUNNER = "tests.json_test_runner.JsonTestRunner"
+
 ALLOWED_HOSTS = []
 
 # Application definition

@@ -58,3 +58,19 @@ tests:
   - id: TC015
     type: manuel
     description: "Vérifier la cohérence, l'orthographe et la langue de tous les textes de l'interface."
+
+  - id: TC016
+    type: auto-unittest
+    description: "Import JSON valide avec --truncate : les anciennes tâches sont supprimées et les nouvelles importées."
+
+  - id: TC017
+    type: auto-unittest
+    description: "Import JSON valide sans --truncate : les nouvelles tâches sont ajoutées sans supprimer les existantes."
+
+  - id: TC018
+    type: auto-unittest
+    description: "Import JSON invalide (fichier manquant ou mauvais format) doit lever CommandError."
+
+  - id: TC019
+    type: auto-unittest
+    description: "Import JSON ignore les entrées sans champ 'title'."

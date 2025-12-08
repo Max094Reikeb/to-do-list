@@ -1,0 +1,188 @@
+{
+  "tests": [
+    {
+      "test_case_id": "TC017",
+      "test_name": "tests.tasks.test_dataset_import.ImportDatasetTests.test_import_dataset_appends_tasks_without_truncate",
+      "module": "tests.tasks.test_dataset_import",
+      "class": "ImportDatasetTests",
+      "method": "test_import_dataset_appends_tasks_without_truncate",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC016",
+      "test_name": "tests.tasks.test_dataset_import.ImportDatasetTests.test_import_dataset_creates_tasks_from_file_with_truncate",
+      "module": "tests.tasks.test_dataset_import",
+      "class": "ImportDatasetTests",
+      "method": "test_import_dataset_creates_tasks_from_file_with_truncate",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC018",
+      "test_name": "tests.tasks.test_dataset_import.ImportDatasetTests.test_import_dataset_missing_file_raises_error",
+      "module": "tests.tasks.test_dataset_import",
+      "class": "ImportDatasetTests",
+      "method": "test_import_dataset_missing_file_raises_error",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC019",
+      "test_name": "tests.tasks.test_dataset_import.ImportDatasetTests.test_import_dataset_skips_entries_without_title",
+      "module": "tests.tasks.test_dataset_import",
+      "class": "ImportDatasetTests",
+      "method": "test_import_dataset_skips_entries_without_title",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC018",
+      "test_name": "tests.tasks.test_dataset_import.ImportDatasetTests.test_import_dataset_with_non_list_data_raises_error",
+      "module": "tests.tasks.test_dataset_import",
+      "class": "ImportDatasetTests",
+      "method": "test_import_dataset_with_non_list_data_raises_error",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC003",
+      "test_name": "tests.tasks.test_forms.TaskFormTests.test_form_is_valid_with_title",
+      "module": "tests.tasks.test_forms",
+      "class": "TaskFormTests",
+      "method": "test_form_is_valid_with_title",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC015",
+      "test_name": "tests.tasks.test_forms.TaskFormTests.test_form_placeholder_is_set",
+      "module": "tests.tasks.test_forms",
+      "class": "TaskFormTests",
+      "method": "test_form_placeholder_is_set",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC008",
+      "test_name": "tests.tasks.test_models.TaskModelTests.test_str_returns_title",
+      "module": "tests.tasks.test_models",
+      "class": "TaskModelTests",
+      "method": "test_str_returns_title",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC006",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_delete_task_flow",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_delete_task_flow",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC002",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_home_page_list_form",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_home_page_list_form",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC003",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_home_page_post_creates_task_and_redirects",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_home_page_post_creates_task_and_redirects",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC004",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_home_page_post_invalid_shows_form_errors",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_home_page_post_invalid_shows_form_errors",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC005",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_update_task_get",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_update_task_get",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC004",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_update_task_post_invalid_shows_form_errors",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_update_task_post_invalid_shows_form_errors",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC005",
+      "test_name": "tests.tasks.test_views.TaskViewsTests.test_update_task_post_updates_and_redirects",
+      "module": "tests.tasks.test_views",
+      "class": "TaskViewsTests",
+      "method": "test_update_task_post_updates_and_redirects",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC008",
+      "test_name": "tests.tasks.test_admin.AdminTests.test_task_is_registered_in_admin",
+      "module": "tests.tasks.test_admin",
+      "class": "AdminTests",
+      "method": "test_task_is_registered_in_admin",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC010",
+      "test_name": "tests.tasks.test_apps.TasksConfigTests.test_app_config_name",
+      "module": "tests.tasks.test_apps",
+      "class": "TasksConfigTests",
+      "method": "test_app_config_name",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC001",
+      "test_name": "tests.tasks.test_urls.TasksUrlsTests.test_list_url_resolves_to_view_name",
+      "module": "tests.tasks.test_urls",
+      "class": "TasksUrlsTests",
+      "method": "test_list_url_resolves_to_view_name",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC005",
+      "test_name": "tests.tasks.test_urls.TasksUrlsTests.test_update_and_delete_urls_exist",
+      "module": "tests.tasks.test_urls",
+      "class": "TasksUrlsTests",
+      "method": "test_update_and_delete_urls_exist",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC010",
+      "test_name": "tests.todo.test_asgi_wsgi.AsgiWsgiTests.test_asgi_application_importable",
+      "module": "tests.todo.test_asgi_wsgi",
+      "class": "AsgiWsgiTests",
+      "method": "test_asgi_application_importable",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC010",
+      "test_name": "tests.todo.test_asgi_wsgi.AsgiWsgiTests.test_wsgi_application_importable",
+      "module": "tests.todo.test_asgi_wsgi",
+      "class": "AsgiWsgiTests",
+      "method": "test_wsgi_application_importable",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC010",
+      "test_name": "tests.todo.test_urls.TodoUrlsTests.test_admin_url_resolves",
+      "module": "tests.todo.test_urls",
+      "class": "TodoUrlsTests",
+      "method": "test_admin_url_resolves",
+      "status": "passed"
+    },
+    {
+      "test_case_id": "TC001",
+      "test_name": "tests.todo.test_urls.TodoUrlsTests.test_root_url_uses_tasks_list_view",
+      "module": "tests.todo.test_urls",
+      "class": "TodoUrlsTests",
+      "method": "test_root_url_uses_tasks_list_view",
+      "status": "passed"
+    }
+  ]
+}
