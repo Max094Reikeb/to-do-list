@@ -3,3 +3,4 @@ ruff
 coverage
 selenium
 axe-core-python
+axe-selenium-python
