@@ -1,3 +1,5 @@
 django>=5.0
 ruff
 coverage
+selenium
+axe-core-python
