@@ -2,6 +2,7 @@ from django.contrib.admin.sites import site
 from django.test import SimpleTestCase
 
 from tasks.models import Task
+
 from ..decorators import tc
 
 

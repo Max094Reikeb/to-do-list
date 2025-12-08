@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from tasks.models import Task
+
 from ..decorators import tc
 
 

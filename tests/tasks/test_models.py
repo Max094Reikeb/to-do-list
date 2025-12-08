@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 from tasks.models import Task
+
 from ..decorators import tc
 
 

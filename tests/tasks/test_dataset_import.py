@@ -7,6 +7,7 @@ from django.core.management.base import CommandError
 from django.test import TestCase
 
 from tasks.models import Task
+
 from ..decorators import tc
 
 
