@@ -1,7 +1,60 @@
-<h3>Update task</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do list – Update task</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <style>
+        .center-column {
+            margin: 40px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
 
-<form method="POST" action="">
-	{% csrf_token %}
-	{{ form }}
-	<input type="submit" name="Update Task">
-</form>
+        .skip-link {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto;
+            padding: 8px;
+            background: #000;
+            color: #fff;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="center-column" id="main-content">
+    <h1>Update task</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">Task title</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group form-check">
+            {{ form.complete }}
+            <label class="form-check-label" for="id_complete">Completed</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'list' %}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+</body>
+</html>
