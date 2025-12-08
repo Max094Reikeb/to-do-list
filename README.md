@@ -202,3 +202,18 @@ chmod +x build.sh
 ```bash
 python manage.py migrate
 ```
+
+## 9. Test matrix
+To launch the test matrix on multiple Python & Django environments:
+```bash
+./run_test_matrix.sh
+```
+
+The current matrix tests:
+* Python 3.13 with Django 5.0.x
+* Python 3.9 with Django 4.2.x
+* Python 3.9 with Django 3.2.x
+
+> Note : We also wanted Python 2.7. However, newer Django version (3.x, 4.x, 5.x) do not support it anymore.
+Testing with Python 2.7 would mean using an older Django version (1.11),
+which would require to adapt the code (in particular URLs which use `path()`).
