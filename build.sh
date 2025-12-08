@@ -51,6 +51,28 @@ else
   echo "Ruff not found, skipping lint step."
 fi
 
+# ---- Run axe-core accessibility checks (WCAG 2.1 A) ----
+echo "Running accessibility checks with axe-core (WCAG 2.1 A)..."
+
+python manage.py runserver 127.0.0.1:8000 > /dev/null 2>&1 &
+SERVER_PID=$!
+echo "Django dev server started with PID ${SERVER_PID}"
+sleep 3
+
+set +e
+python run_axe_a11y.py
+A11Y_EXIT=$?
+set -e
+
+kill "${SERVER_PID}" 2>/dev/null || true
+
+if [ "${A11Y_EXIT}" -ne 0 ]; then
+  echo "Accessibility checks failed. Aborting build."
+  exit 1
+fi
+
+echo "Accessibility checks passed."
+
 echo "Updating APP_VERSION in ${SETTINGS_FILE} ..."
 
 python - "${SETTINGS_FILE}" "${VERSION}" << 'EOF'

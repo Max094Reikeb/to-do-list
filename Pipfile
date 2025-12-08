@@ -9,6 +9,9 @@ ruff = "*"
 
 [dev-packages]
 coverage = "*"
+selenium = "*"
+axe-core-python = "*"
+axe-selenium-python = "*"
 
 [requires]
 python_version = "3.11"
