@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.urls import reverse
 
 from tasks.models import Task
-from ..decorators import tc
 
 
 class TaskViewsTests(TestCase):
@@ -12,7 +11,6 @@ class TaskViewsTests(TestCase):
             complete=False,
         )
 
-    @tc("TC002")
     def test_home_page_list_form(self):
         """GET / should return 200 OK, get list & form."""
         response = self.client.get(reverse("list"))
@@ -24,7 +22,6 @@ class TaskViewsTests(TestCase):
         self.assertIn(self.task, response.context["tasks"])
         self.assertIn("app_version", response.context)
 
-    @tc("TC003")
     def test_home_page_post_creates_task_and_redirects(self):
         """POST / should return 302 & redirect."""
         response = self.client.post(
@@ -39,7 +36,6 @@ class TaskViewsTests(TestCase):
             Task.objects.filter(title="Created from POST").exists()
         )
 
-    @tc("TC005")
     def test_update_task_get(self):
         """GET /update_task/<id>/ should return 200 OK."""
         url = reverse("update_task", args=[self.task.id])
@@ -50,7 +46,6 @@ class TaskViewsTests(TestCase):
         self.assertIn("form", response.context)
         self.assertEqual(response.context["form"].instance, self.task)
 
-    @tc("TC005")
     def test_update_task_post_updates_and_redirects(self):
         """POST /update_task/<id>/ should redirect."""
         url = reverse("update_task", args=[self.task.id])
@@ -66,7 +61,6 @@ class TaskViewsTests(TestCase):
         self.assertEqual(self.task.title, "Updated title")
         self.assertTrue(self.task.complete)
 
-    @tc("TC006")
     def test_delete_task_flow(self):
         """GET /delete_task/<id>/ should delete & redirect."""
         url = reverse("delete_task", args=[self.task.id])
@@ -81,7 +75,6 @@ class TaskViewsTests(TestCase):
 
         self.assertFalse(Task.objects.filter(id=self.task.id).exists())
 
-    @tc("TC004")
     def test_home_page_post_invalid_shows_form_errors(self):
         """POST / with invalid data must stay on page and show errors."""
         response = self.client.post(
@@ -95,7 +88,6 @@ class TaskViewsTests(TestCase):
         self.assertTrue(response.context["form"].errors)
         self.assertFalse(Task.objects.filter(title="").exists())
 
-    @tc("TC004")
     def test_update_task_post_invalid_shows_form_errors(self):
         """POST /update_task/<id>/ with invalid data must show form again."""
         url = reverse("update_task", args=[self.task.id])
